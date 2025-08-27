@@ -80,7 +80,7 @@ const historyClear = funGetElById('history-clear');
 
 historyClear.addEventListener('click', function () {
     const historyContainer = funGetElById('history-container');
-    historyContainer.remove();
+    historyContainer.innerHTML = ""; 
 
 })
 
