@@ -51,9 +51,38 @@ callButtonS.forEach((callButton) => {
         coinCount = coinCount - 20;
         funGetElById('coin-count').innerText = coinCount;
 
+        const eventTime = new Date().toLocaleTimeString();
+        const historyContainer = funGetElById('history-container');
+
+        const newHistory = document.createElement('div');
+
+        newHistory.innerHTML = `
+        <div class="rounded-lg text-lg text-gray-700 p-2 px-3 bg-gray-100 mb-6 flex items-center justify-between">
+            <div>
+              <h1 class="">${servicesName}</h1>
+              <h1>${servicesNumber}</h1>
+            </div>
+
+            <p>${eventTime}</p>
+          </div>
+
+        `
+        historyContainer.appendChild(newHistory);
+
+
     });
 });
 
+
+// remove history data
+
+const historyClear = funGetElById('history-clear');
+
+historyClear.addEventListener('click', function () {
+    const historyContainer = funGetElById('history-container');
+    historyContainer.remove();
+
+})
 
 
 
