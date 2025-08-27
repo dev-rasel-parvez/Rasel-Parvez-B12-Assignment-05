@@ -30,7 +30,7 @@ const callButtonS = document.querySelectorAll('.call-button');
 
 // let coin-count value 0
 let coinCount = funGetElById('coin-count').innerText;
-console.log(coinCount);
+
 
 callButtonS.forEach((callButton) => {
     callButton.addEventListener('click', function () {
@@ -54,4 +54,38 @@ callButtonS.forEach((callButton) => {
     });
 });
 
+
+
+
+
+
+// Challenges Part
+
+// Select all heart buttons
+const copyCount = funGetElById('copy-count');
+
+// get copy-count value 
+let copyCountValue = Number(copyCount.innerText);
+
+const copyButtons = document.querySelectorAll('.copy-button');
+
+copyButtons.forEach((copyButton) => {
+    copyButton.addEventListener('click', function () {
+
+        copyCountValue++
+        funGetElById('copy-count').innerText = copyCountValue;
+
+        // Find the service number from the same card
+        const serviceNumber = copyButton.parentNode.parentNode.querySelector('h1').innerText;
+
+        // Copy to clipboard
+        navigator.clipboard.writeText(serviceNumber)
+            .then(() => {
+
+            })
+            .catch(err => {
+
+            });
+    });
+});
 
