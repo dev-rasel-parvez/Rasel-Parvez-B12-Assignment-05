@@ -38,11 +38,17 @@ callButtonS.forEach((callButton) => {
 
         const servicesNumber = callButton.parentNode.parentNode.childNodes[1].childNodes[7].innerText;
 
-        //Show an alert with a message including the service name and number
+        //If coins are less than 20 → stop immediately
+        if (coinCount < 20) {
+            alert('❌ You do not have sufficient coin. You need at least 20 coins to make a call');
+            return; // terminate process
+        }
+
+        //Otherwise (coins >= 20) → show call alert
         alert(`📞 Calling ${servicesName} : ${servicesNumber}`);
 
-        //Each call will cut 20 coins. Reduce Coin after each click.
-        coinCount = Number(coinCount) - 20;
+        //Cut 20 coins
+        coinCount = coinCount - 20;
         funGetElById('coin-count').innerText = coinCount;
 
     });
